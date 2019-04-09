@@ -7,6 +7,8 @@ import android.arch.persistence.room.RoomDatabase;
 import com.example.db.DBUtils.ObjectBox.ObjectBox;
 import com.example.db.DBUtils.RoomUtils.RoomDB;
 
+import io.realm.Realm;
+
 public class MyApp extends Application {
     private RoomDB roomDB;
     private static MyApp instance;
@@ -18,6 +20,7 @@ public class MyApp extends Application {
 
         initObjectBox();
         initRoom();
+        initRealm();
     }
 
     private void initObjectBox(){
@@ -26,6 +29,10 @@ public class MyApp extends Application {
 
     private void initRoom(){
         roomDB = Room.databaseBuilder(getApplicationContext(), RoomDB.class, "roomDB").build();
+    }
+
+    private void initRealm(){
+        Realm.init(getApplicationContext());
     }
 
     public RoomDB getRoomDB() {

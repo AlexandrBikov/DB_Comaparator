@@ -27,10 +27,12 @@ public class RoomManager {
 
                 dao.clear();
 
+                RoomEntity entity = getEntity();
+
                 long startTime = System.currentTimeMillis();
 
                 for (int i = 0; i < amount; i++) {
-                    dao.insert(getEntity());
+                    dao.insert(entity);
                 }
 
                 handler.post(getRunnable(System.currentTimeMillis() - startTime));
