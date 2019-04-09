@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">DB</string>
+    <string-array name="room_mods">
+        <item>WAL</item>
+        <item>TRUNCATE</item>
+        <item>AUTOMATIC</item>
+    </string-array>
+</resources>
