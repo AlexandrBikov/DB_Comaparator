@@ -1,5 +1,6 @@
 package com.example.db.DBManagers;
 
+import android.arch.persistence.room.RoomDatabase;
 import android.os.Handler;
 import android.os.Looper;
 
@@ -44,6 +45,10 @@ public class RoomManager {
                 activity.setRoomTextView(Long.toString(time));
             }
         };
+    }
+
+    public void switchJournalMode(RoomDatabase.JournalMode mode){
+        dao = MyApp.getInstance().setJournalMode(mode).roomEntityDAO();
     }
 
     private RoomEntity getEntity() {
